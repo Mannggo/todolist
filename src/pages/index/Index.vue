@@ -1,13 +1,11 @@
 <template>
     <div>
         <el-row class="tac">
-            <el-col :span="6" offset="3">
-                <h5>\(^o^)/~</h5>
+            <el-col :span="3" :offset="6">
+                <h4>Menu</h4>
                 <el-menu
                     default-active="2"
-                    class="el-menu-vertical-demo"
-                    @open="handleOpen"
-                    @close="handleClose">
+                    class="el-menu-vertical-demo">
                     <el-submenu index="1">
                         <template slot="title">
                             <i class="el-icon-date"></i>
@@ -32,69 +30,47 @@
                     </el-menu-item>
                 </el-menu>
             </el-col>
-            <el-col :span="12">
-                <h5>↓↓ ↓↓ ↓↓</h5>
-                <el-card shadow="hover" :body-style="{ padding: '0px' }">
-                    <el-row>
-                        <el-col :span="4" class="card-img">
-                            <div class="circle-red v-center"></div>
-                        </el-col>
-                        <el-col :span="16">
-                            <div class="card-content v-center">
-                                开始！
-                            </div>
-                        </el-col>
-                        <el-col :span="4">
-                            <div class="card-operation">
-                                ads
-                            </div>
-                        </el-col>
-                    </el-row>
-                </el-card>
+            <el-col :span="9">
+                <h3>今天</h3>
+                <Task class="task" priority='1' 
+                    content='阅读半小时课外书' 
+                    status='true'
+                    time='2018-10-23'>
+                </Task>
+                <Task class="task" priority='2' 
+                    content='俯卧撑20个' 
+                    status='true'
+                    time='2018-10-23'>
+                </Task>
+                <Task class="task" priority='3' 
+                    content='看美恐第四集' 
+                    status='false'
+                    time='2018-10-23'>
+                </Task>
             </el-col>
         </el-row>
     </div>
 </template>
 <style>
-    .el-card {
-        margin-left: 1rem;
-        margin-right: 1rem;
-        position: relative;
-    }
-    .card-img {
-        padding-left: 2.5rem;
-        height: 5rem;
-    }
-    .circle-red {
-        width: 1rem;
-        height: 1rem;
-        border-radius: 1rem;
-        border: darkgrey solid 0.01rem;
-
-        background: orangered;
-    }
-    .v-center {
-        position: absolute;
-        top: 50%;
-        transform: translate(0, -50%);
-    }
-    .card-content {
-        font-size: 1.6rem;
-        font-weight: 400;
-    }
-    .card-operation {
-
-    }
+.task {
+    margin-bottom: 1rem;
+}
 </style>
 <script>
+    import Task from '../../components/Task'
     export default {
         name: "Index",
+        components: {
+            Task,
+        },
         data: function () {
             return {
-                currentDate: new Date()
-            };
+
+            }
         },
-        methods: {}
+        methods: {
+            
+        }
     };
 
 </script>
