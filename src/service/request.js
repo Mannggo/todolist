@@ -4,3 +4,7 @@ import fetch from '../config/fetch'
 export const login = (username, password) => fetch('/login',{
     username, password
 }, 'POST')
+
+export const taskList = (pageIndex, pageSize, queryType, queryValue) => fetch('/task/list',{
+    pageIndex, pageSize, queryType, queryValue
+}, 'GET')
