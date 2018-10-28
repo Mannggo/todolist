@@ -17,14 +17,16 @@ Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 const store = new Vuex.Store({
-  state: {
-    logined: true
-  },
   mutations: {
     LOGIN_STATE (state) {
       state.logined = !state.logined
     }
-  }
+  },
+  getters:{
+    isLogined(state){//这里的state对应着上面这个state
+        return state.logined;
+    }
+},
 })
 new Vue({
   el: '#app',

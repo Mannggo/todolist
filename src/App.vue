@@ -3,10 +3,10 @@
         <el-menu class="el-menu" mode="horizontal" background-color="rgb(232, 95, 95)" text-color="#fff"
             active-text-color="#eee">
             <div class="title"><b>Todo List</b></div>
-            <el-menu-item style="float:right" index="1" v-if="$store.state.logined" @click="loginState()">注销</el-menu-item>
-            <el-menu-item style="float:right" index="2" v-if="$store.state.logined">设置</el-menu-item>
-            <el-menu-item style="float:right" index="3" v-if="$store.state.logined" @click="dialogFormVisible = true">+</el-menu-item>
-            <el-menu-item style="float:right" index="4" v-else @click="loginState()">登录</el-menu-item>
+            <el-menu-item style="float:right" index="1" v-if="1 == 1" @click="loginState()" disabled>注销</el-menu-item>
+            <el-menu-item style="float:right" index="2" v-if="1 == 1">设置</el-menu-item>
+            <el-menu-item style="float:right" index="3" v-if="1 == 1" @click="dialogFormVisible = true">+</el-menu-item>
+            <el-menu-item style="float:right" index="4" v-else @click="loginState()" disabled>登录</el-menu-item>
         </el-menu>
         <router-view v-wechat-title='$route.meta.title' />
         <el-dialog title="添加一个任务" :visible.sync="dialogFormVisible">
@@ -24,13 +24,12 @@
                 <el-form-item label="任务日期">
                     <el-col :span="11">
                         <el-form-item prop="">
-                            <el-date-picker type="date" placeholder="选择日期" 
-                            v-model="form.date"></el-date-picker>
+                            <el-date-picker type="date" placeholder="选择日期" v-model="form.date"></el-date-picker>
                         </el-form-item>
                     </el-col>
                 </el-form-item>
                 <el-form-item>
-                    <el-button type="success" @click="createTask()">添加</el-button>
+                    <el-button type="success" @click="insertTask()">添加</el-button>
                 </el-form-item>
             </el-form>
         </el-dialog>
@@ -39,8 +38,8 @@
 
 <script>
     import {
-        mapMutations
-    } from 'vuex';
+        insertTask
+    } from '@/service/request.js'
     export default {
         name: 'App',
         data: function () {
@@ -56,14 +55,21 @@
             }
         },
         methods: {
-            ...mapMutations({
-                loginState: 'LOGIN_STATE'
-            }),
-            createTask() {
-
+            insertTask() {
+                if (this.form.priority && this.form.content && this.form.date) {
+                    insertTask(
+                        this.form.priority,
+                        this.form.content,
+                        this.form.date
+                    );
+                }
             }
         },
-        computed: {}
+        computed: {
+            logined: function() {
+
+            }
+        }
     }
 
 </script>
