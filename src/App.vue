@@ -10,7 +10,7 @@
         </el-menu>
         <router-view v-wechat-title='$route.meta.title' />
         <el-dialog title="添加一个任务" :visible.sync="dialogFormVisible">
-            <el-form :inline="true" :model="formInline" class="demo-form-inline">
+            <el-form :inline="true" class="demo-form-inline">
                 <el-form-item label="优先级">
                     <el-select v-model="form.priority" placeholder="优先级">
                         <el-option label="普通" value="3"></el-option>
@@ -30,7 +30,7 @@
                     </el-col>
                 </el-form-item>
                 <el-form-item>
-                    <el-button type="success" @click="onSubmit">添加</el-button>
+                    <el-button type="success" @click="createTask()">添加</el-button>
                 </el-form-item>
             </el-form>
         </el-dialog>

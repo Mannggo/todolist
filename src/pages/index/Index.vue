@@ -57,7 +57,8 @@
 }
 </style>
 <script>
-    import Task from '../../components/Task'
+    import {login} from '@/service/request'
+    import Task from '@/components/Task'
     export default {
         name: "Index",
         components: {
@@ -70,6 +71,9 @@
         },
         methods: {
             
+        },
+        created: function() {
+            login('xzd', 'xzd');
         }
     };
 

@@ -30,9 +30,9 @@
             priorityClass: function() {
                 return this.priority == 1 ?
                 "circle-red v-center": this.priority == 2 ?
-                "circle-orange v-center":"circle-commom v-center"
+                "circle-orange v-center":"circle-common v-center"
             }
-            
+
         },
         methods: {
             complete() {
@@ -69,7 +69,7 @@
         border: rgb(83, 81, 81) solid 0.08rem;
         background: #E6A23C
     }
-    .circle-commom {
+    .circle-common {
         width: 1rem;
         height: 1rem;
         border-radius: 1rem;
@@ -81,7 +81,6 @@
         height: 1rem;
         border-radius: 1rem;
         border: rgb(83, 81, 81) solid 0.08rem;
-
         background: orangered;
     }
     .v-center {

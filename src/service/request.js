@@ -1,7 +1,7 @@
 import fetch from '../config/fetch'
 
 // 登录
-export const login = (username, password) => fetch('/login',{
+export const login = (username, password) => fetch('/auth/login',{
     username, password
 }, 'POST')
 
