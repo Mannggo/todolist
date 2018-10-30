@@ -22,7 +22,7 @@
                         <el-menu-item index="2-1" @click='changeQueryType(1, 1, "重要")'>重要</el-menu-item>
                         <el-menu-item index="2-2" @click='changeQueryType(1, 2, "次要")'>次要</el-menu-item>
                     </el-submenu>
-                    <el-menu-item index="3">
+                    <el-menu-item index="3" @click='changeQueryType(6, 1, "Archive")'>
                         <i class="el-icon-sold-out"></i>
                         <span slot="title">Archive</span>
                     </el-menu-item>
@@ -36,8 +36,12 @@
                 class="task" 
                 :priority='task.priority' 
                 :content='task.content' 
-                :status='task.status == 1' 
-                :time='task.date'>
+                :status='task.status' 
+                :time='task.date'
+                :id='task.id'
+                :date='task.date'
+                @delete='getTaskList'
+                @complete="getTaskList">
                 </Task>
             </el-col>
         </el-row>

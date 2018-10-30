@@ -14,17 +14,17 @@
                 <el-form-item label="优先级">
                     <el-select v-model="form.priority" placeholder="优先级">
                         <el-option label="普通" value="3"></el-option>
-                        <el-option label="重要" value="1"></el-option>
                         <el-option label="次要" value="2"></el-option>
+                        <el-option label="重要" value="1"></el-option>
                     </el-select>
                 </el-form-item>
                 <el-form-item label="任务内容">
-                    <el-input v-model="form.content" placeholder="10字以内..."></el-input>
+                    <el-input v-model="form.content" placeholder="10字以内..." maxlength="10"></el-input>
                 </el-form-item>
                 <el-form-item label="任务日期">
                     <el-col :span="11">
                         <el-form-item prop="">
-                            <el-date-picker value-format="yyyy-MM-dd" type="date" placeholder="选择日期" v-model="form.date"></el-date-picker>
+                            <el-date-picker :picker-options="pickerOptions1" value-format="yyyy-MM-dd" type="date" placeholder="选择日期" v-model="form.date"></el-date-picker>
                         </el-form-item>
                     </el-col>
                 </el-form-item>
@@ -46,11 +46,31 @@
             return {
                 form: {
                     content: '',
-                    date: ''
+                    date: '',
+                    priority: '3'
                 },
                 dialogTableVisible: false,
                 dialogFormVisible: false,
-                formLabelWidth: '120px'
+                formLabelWidth: '120px',
+                pickerOptions1: {
+                    disabledDate(time) {
+                        let today = new Date();
+                        return time.getTime() < Date.parse(today.getFullYear() + '/' + (today.getMonth() + 1) + "/" + today.getDate())
+                    },
+                    shortcuts: [{
+                        text: '今天',
+                        onClick(picker) {
+                            picker.$emit('pick', new Date());
+                        }
+                    }, {
+                        text: '明天',
+                        onClick(picker) {
+                            const date = new Date();
+                            date.setTime(date.getTime() + 3600 * 1000 * 24);
+                            picker.$emit('pick', date);
+                        }
+                    }]
+                },
             }
         },
         methods: {
@@ -67,10 +87,10 @@
                     });
                 }
             },
-            
+
         },
         computed: {
-            logined: function() {
+            logined: function () {
 
             }
         }

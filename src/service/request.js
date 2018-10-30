@@ -14,3 +14,11 @@ export const taskList = (pageIndex, pageSize, queryType, queryValue) => fetch('/
 export const insertTask = (priority, content, date) => fetch('/task/insert',{
     priority, content,date
 }, 'POST')
+
+export const deleteTask = (id) => fetch('/task/delete',{
+    id
+}, 'DELETE')
+
+export const completeTask = (id) => fetch('/task/complete',{
+    id
+}, 'GET')
