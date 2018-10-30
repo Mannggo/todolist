@@ -50,6 +50,7 @@ export default async(url = '', data = {}, type = 'GET', method = 'fetch') => {
 			let requestObj;
 			if (window.XMLHttpRequest) {
 				requestObj = new XMLHttpRequest();
+				requestObj.withCredentials = true;
 			} else {
 				requestObj = new ActiveXObject;
 			}
@@ -62,7 +63,7 @@ export default async(url = '', data = {}, type = 'GET', method = 'fetch') => {
 			requestObj.open(type, url, true);
 			requestObj.setRequestHeader("Content-type", "application/json");
 			requestObj.send(sendData);
-
+			
 			requestObj.onreadystatechange = () => {
 				if (requestObj.readyState == 4) {
 					if (requestObj.status == 200) {

@@ -8,7 +8,7 @@
             <el-menu-item style="float:right" index="3" v-if="1 == 1" @click="dialogFormVisible = true">+</el-menu-item>
             <el-menu-item style="float:right" index="4" v-else @click="loginState()" disabled>登录</el-menu-item>
         </el-menu>
-        <router-view v-wechat-title='$route.meta.title' />
+        <router-view v-wechat-title='$route.meta.title' ref="child" />
         <el-dialog title="添加一个任务" :visible.sync="dialogFormVisible">
             <el-form :inline="true" class="demo-form-inline">
                 <el-form-item label="优先级">
@@ -24,7 +24,7 @@
                 <el-form-item label="任务日期">
                     <el-col :span="11">
                         <el-form-item prop="">
-                            <el-date-picker type="date" placeholder="选择日期" v-model="form.date"></el-date-picker>
+                            <el-date-picker value-format="yyyy-MM-dd" type="date" placeholder="选择日期" v-model="form.date"></el-date-picker>
                         </el-form-item>
                     </el-col>
                 </el-form-item>
@@ -46,8 +46,7 @@
             return {
                 form: {
                     content: '',
-                    priority: 3,
-                    date: '2016-12-12'
+                    date: ''
                 },
                 dialogTableVisible: false,
                 dialogFormVisible: false,
@@ -61,9 +60,14 @@
                         this.form.priority,
                         this.form.content,
                         this.form.date
-                    );
+                    ).then(resp => {
+                        this.form = {}
+                        this.dialogFormVisible = false
+                        this.$refs.child.getTaskList();
+                    });
                 }
-            }
+            },
+            
         },
         computed: {
             logined: function() {
