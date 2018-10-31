@@ -22,3 +22,6 @@ export const deleteTask = (id) => fetch('/task/delete',{
 export const completeTask = (id) => fetch('/task/complete',{
     id
 }, 'GET')
+
+// 设置相关
+export const getSettings = () => fetch('/settings/all',{}, 'GET')
