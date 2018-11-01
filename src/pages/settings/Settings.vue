@@ -75,7 +75,15 @@
         },
         methods: {
             onSubmit() {
-                console.log('submit!');
+                updateSettings(this.form).then(res => {
+                    if (res.code === 0) {
+                        this.$notify({
+                            title: '成功',
+                            message: resp.data.nickname + '设置已生效',
+                            type: 'success'
+                        });
+                    }
+                })
             },
             handleCheckAllChange() {
                 this.form.remindDay = this.checkAll ? allDays : [];
