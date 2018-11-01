@@ -26,6 +26,8 @@ export const completeTask = (id) => fetch('/task/complete',{
 // 设置相关
 export const getSettings = () => fetch('/settings/all',{}, 'GET')
 
-export const updateSettings = (settings) => fetch('/settings/update',settings, 'POST')
+export const updateSettings = (remindSwitch, remindEmail, remindDay, remindTime) => fetch('/settings/update',{
+    remindSwitch, remindEmail, remindDay, remindTime
+}, 'POST')
 
 

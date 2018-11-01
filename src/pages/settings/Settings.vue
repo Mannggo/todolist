@@ -68,21 +68,23 @@
                 form: {
                     remindSwitch: false,
                     remindDay: [],
-                    remindTime: '17:00'
+                    remindTime: '17:00',
+                    remindEmail:''
                 },
                 checkAll: false,
             }
         },
         methods: {
             onSubmit() {
-                updateSettings(this.form).then(res => {
+                updateSettings(this.form.remindSwitch, this.form.remindEmail, this.form.remindDay, this.form.remindTime).then(res => {
                     if (res.code === 0) {
                         this.$notify({
                             title: '成功',
-                            message: resp.data.nickname + '设置已生效',
+                            message: '设置已生效',
                             type: 'success'
                         });
                     }
+
                 })
             },
             handleCheckAllChange() {
