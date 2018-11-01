@@ -54,12 +54,12 @@
                     <el-button type="primary" @click="onSubmit" round>保存</el-button>
                 </el-form-item>
             </el-form>
-            
+
         </el-col>
     </el-row>
 </template>
 <script>
-    import {getSettings} from '@/service/request'
+    import {getSettings, updateSettings} from '@/service/request'
     let allDays = ['1','2','3','4','5','6','7']
     export default {
         name: 'Settings',
