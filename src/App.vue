@@ -171,8 +171,7 @@
         color: antiquewhite
     }
 
-    .center-form{
-        margin: 0 auto;
+    .el-form{
         text-align: center;
     }
 </style>
