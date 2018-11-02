@@ -13,7 +13,7 @@
             <el-menu-item style="float:right" index="4" v-else @click="loginFormVisible = true">登录</el-menu-item>
         </el-menu>
         <router-view v-wechat-title='$route.meta.title' ref="child" />
-        <el-dialog title="添加一个任务" :visible.sync="dialogFormVisible" width="65%" fullscreen>
+        <el-dialog title="添加一个任务" :visible.sync="dialogFormVisible" width="68%">
             <el-form :inline="true" class="demo-form-inline">
                 <el-form-item label="优先级">
                     <el-select v-model="form.priority" placeholder="优先级">
@@ -38,7 +38,7 @@
                 </el-form-item>
             </el-form>
         </el-dialog>
-        <el-dialog title="登录" :visible.sync="loginFormVisible" fullscreen>
+        <el-dialog title="登录" :visible.sync="loginFormVisible" width="68%">
             <el-form :model="loginForm" class="login-form" inline>
                 <el-form-item label="用户名">
                     <el-input v-model="loginForm.username" autocomplete="off"></el-input>
