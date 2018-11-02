@@ -1,4 +1,4 @@
-let baseUrl = 'https://jt.zhond.club'
+let baseUrl = 'https://jt.zhongd.club'
 export {
     baseUrl
 }
