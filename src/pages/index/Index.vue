@@ -30,13 +30,13 @@
             </el-col>
             <el-col :span="9">
                 <h3>{{title}}</h3>
-                
-                <Task v-for="task in tasks" 
-                :key="task.id" 
-                class="task" 
-                :priority='task.priority' 
-                :content='task.content' 
-                :status='task.status' 
+
+                <Task v-for="task in tasks"
+                :key="task.id"
+                class="task"
+                :priority='task.priority'
+                :content='task.content'
+                :status='task.status'
                 :time='task.date'
                 :id='task.id'
                 :date='task.date'
@@ -57,7 +57,7 @@
     import {
         login, taskList
     } from '@/service/request'
-    import {getCookie, setCookie} from '@/config/cookie.js' 
+    import {getCookie, setCookie} from '@/config/cookie.js'
     import Task from '@/components/Task'
     export default {
         name: "Index",
@@ -100,14 +100,14 @@
                             message: resp.data.nickname + '登录成功',
                             type: 'success'
                         });
-                        setCookie("user.username", resp.data.nickname, 24*30);
-                        setCookie("user.gender", resp.data.gender, 24*30);
-                        setCookie("user.avatar", resp.data.avatar, 24*30);
+                        setCookie("user.username", resp.data.nickname, 29);
+                        setCookie("user.gender", resp.data.gender, 29);
+                        setCookie("user.avatar", resp.data.avatar, 29);
                         this.getTaskList();
                     }
                 });
             }, 1000);
-            
+
 
         }
     };

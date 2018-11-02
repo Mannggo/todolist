@@ -1,8 +1,8 @@
-export const setCookie = (objName, objValue, objHours) => { //添加cookie
+export const setCookie = (objName, objValue, objMinutes) => { //添加cookie
     var str = objName + "=" + escape(objValue);
-    if (objHours > 0) { //为0时不设定过期时间，浏览器关闭时cookie自动消失
+    if (objMinutes > 0) { //为0时不设定过期时间，浏览器关闭时cookie自动消失
         var date = new Date();
-        var ms = objHours * 3600 * 1000;
+        var ms = objMinutes * 60 * 1000;
         date.setTime(date.getTime() + ms);
         str += "; expires=" + date.toGMTString();
     }
