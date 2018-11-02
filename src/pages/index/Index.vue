@@ -32,6 +32,7 @@
                 <h3>{{title}}</h3>
 
                 <Task v-for="task in tasks"
+                :isSimple="false"
                 :key="task.id"
                 class="task"
                 :priority='task.priority'

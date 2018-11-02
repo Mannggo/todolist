@@ -59,7 +59,6 @@
             dateStr: function () {
                 return this.date.substring(0, 10)
             }
-
         },
         methods: {
             complete() {
