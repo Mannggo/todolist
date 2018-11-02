@@ -39,7 +39,7 @@
             </el-form>
         </el-dialog>
         <el-dialog title="登录" :visible.sync="loginFormVisible" fullscreen>
-            <el-form :model="loginForm" class="login-form" label-position="left">
+            <el-form :model="loginForm" class="login-form" inline>
                 <el-form-item label="用户名">
                     <el-input v-model="loginForm.username" autocomplete="off"></el-input>
                 </el-form-item>
@@ -169,12 +169,5 @@
         margin-left: 2rem;
         display: inline-block;
         color: antiquewhite
-    }
-    .el-form {
-        text-align: center;
-    }
-    .el-form-item {
-        width:30%;
-        margin: 0 auto;
     }
 </style>
