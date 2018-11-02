@@ -40,7 +40,7 @@
     } from '@/service/request.js'
     export default {
         name: 'Task',
-        props: ['priority', 'status', 'content', 'id', 'status', 'date'],
+        props: ['priority', 'status', 'content', 'id', 'status', 'date', 'isSimple'],
         data() {
             return {
                 isBtnShow: false,

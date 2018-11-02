@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-row class="tac">
-            <el-col :span="3" :offset="6">
+            <el-col :span="5" :offset="4">
                 <h4>Menu</h4>
                 <el-menu default-active="2" class="el-menu-vertical-demo">
                     <el-submenu index="1">
@@ -28,7 +28,7 @@
                     </el-menu-item>
                 </el-menu>
             </el-col>
-            <el-col :span="9">
+            <el-col :span="10">
                 <h3>{{title}}</h3>
 
                 <Task v-for="task in tasks"
@@ -86,29 +86,11 @@
                 this.getTaskList()
             }
         },
-        created: function () {
+        mounted: function () {
             if (getCookie("user.username")) {
                 this.getTaskList();
                 return;
             }
-            // 一秒后登录，不然页面卡！
-            setTimeout(() => {
-                login('xzd', 'xzd').then(resp => {
-                    if (resp.code === 0) {
-                        this.$notify({
-                            title: '登录成功',
-                            message: resp.data.nickname + '登录成功',
-                            type: 'success'
-                        });
-                        setCookie("user.username", resp.data.nickname, 29);
-                        setCookie("user.gender", resp.data.gender, 29);
-                        setCookie("user.avatar", resp.data.avatar, 29);
-                        this.getTaskList();
-                    }
-                });
-            }, 1000);
-
-
         }
     };
 

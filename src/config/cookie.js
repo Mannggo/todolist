@@ -1,14 +1,8 @@
-export const setCookie = (objName, objValue, objMinutes) => { //添加cookie
-    var str = objName + "=" + escape(objValue);
-    if (objMinutes > 0) { //为0时不设定过期时间，浏览器关闭时cookie自动消失
-        var date = new Date();
-        var ms = objMinutes * 60 * 1000;
-        date.setTime(date.getTime() + ms);
-        str += "; expires=" + date.toGMTString();
-    }
-    document.cookie = document.cookie + str;
-    // alert("添加cookie成功");
-}
+export const setCookie = (c_name, value, hour) => {
+    var exdate = new Date();
+    exdate.setDate(exdate.getTime() + hour * 3600 * 1000);
+    document.cookie = c_name + "=" + escape(value) + ((hour == null) ? "" : ";expires=" + exdate.toGMTString());
+};
 
 export const getCookie = (objName) => { //获取指定名称的cookie的值
     var arrStr = document.cookie.split("; ");
