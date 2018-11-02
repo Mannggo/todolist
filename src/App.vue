@@ -173,5 +173,6 @@
 
     .center-form{
         margin: 0 auto;
+        text-align: center;
     }
 </style>
