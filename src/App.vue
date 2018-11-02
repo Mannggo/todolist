@@ -14,7 +14,7 @@
         </el-menu>
         <router-view v-wechat-title='$route.meta.title' ref="child" />
         <el-dialog title="添加一个任务" :visible.sync="dialogFormVisible" width="68%">
-            <el-form :inline="true" class="demo-form-inline">
+            <el-form :inline="true" class="demo-form-inline" style="text-align:center">
                 <el-form-item label="优先级">
                     <el-select v-model="form.priority" placeholder="优先级">
                         <el-option label="普通" value="3"></el-option>
@@ -39,7 +39,7 @@
             </el-form>
         </el-dialog>
         <el-dialog title="登录" :visible.sync="loginFormVisible" width="68%">
-            <el-form :model="loginForm" class="center-form" inline>
+            <el-form :model="loginForm" class="center-form" inline style="text-align:center">
                 <el-form-item label="用户名">
                     <el-input v-model="loginForm.username" autocomplete="off"></el-input>
                 </el-form-item>
