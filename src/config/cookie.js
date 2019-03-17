@@ -26,3 +26,4 @@ export const allCookie = function () { //读取所有保存的cookie字符串
     }
     alert(str);
 }
+
